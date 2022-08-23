@@ -4,7 +4,7 @@
 #
 Name     : pypi-websockets
 Version  : 10.3
-Release  : 6
+Release  : 7
 URL      : https://files.pythonhosted.org/packages/f8/a3/622d9acbfb9a71144b5d7609906bc648c62e3ca5fdbb1c8cca222949d82c/websockets-10.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/f8/a3/622d9acbfb9a71144b5d7609906bc648c62e3ca5fdbb1c8cca222949d82c/websockets-10.3.tar.gz
 Summary  : An implementation of the WebSocket Protocol (RFC 6455 & 7692)
