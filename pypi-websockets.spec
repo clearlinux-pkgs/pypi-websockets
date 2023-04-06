@@ -4,13 +4,16 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-websockets
-Version  : 11.0
-Release  : 12
-URL      : https://files.pythonhosted.org/packages/06/e7/de79d7cdde692dedb0944c42a03c358118f13cdff79d016a0504dbca35e4/websockets-11.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/06/e7/de79d7cdde692dedb0944c42a03c358118f13cdff79d016a0504dbca35e4/websockets-11.0.tar.gz
+Version  : 11.0.1
+Release  : 13
+URL      : https://files.pythonhosted.org/packages/bd/90/6b5802fad3992d6eac7163216e0389a72475cbb57b23005135190e96d160/websockets-11.0.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/bd/90/6b5802fad3992d6eac7163216e0389a72475cbb57b23005135190e96d160/websockets-11.0.1.tar.gz
 Summary  : An implementation of the WebSocket Protocol (RFC 6455 & 7692)
 Group    : Development/Tools
 License  : BSD-3-Clause
+Requires: pypi-websockets-filemap = %{version}-%{release}
+Requires: pypi-websockets-lib = %{version}-%{release}
+Requires: pypi-websockets-license = %{version}-%{release}
 Requires: pypi-websockets-python = %{version}-%{release}
 Requires: pypi-websockets-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
@@ -24,6 +27,32 @@ BuildRequires : buildreq-distutils3
 :alt: websockets
 |licence| |version| |pyversions| |tests| |docs| |openssf|
 
+%package filemap
+Summary: filemap components for the pypi-websockets package.
+Group: Default
+
+%description filemap
+filemap components for the pypi-websockets package.
+
+
+%package lib
+Summary: lib components for the pypi-websockets package.
+Group: Libraries
+Requires: pypi-websockets-license = %{version}-%{release}
+Requires: pypi-websockets-filemap = %{version}-%{release}
+
+%description lib
+lib components for the pypi-websockets package.
+
+
+%package license
+Summary: license components for the pypi-websockets package.
+Group: Default
+
+%description license
+license components for the pypi-websockets package.
+
+
 %package python
 Summary: python components for the pypi-websockets package.
 Group: Default
@@ -36,6 +65,7 @@ python components for the pypi-websockets package.
 %package python3
 Summary: python3 components for the pypi-websockets package.
 Group: Default
+Requires: pypi-websockets-filemap = %{version}-%{release}
 Requires: python3-core
 Provides: pypi(websockets)
 
@@ -44,10 +74,10 @@ python3 components for the pypi-websockets package.
 
 
 %prep
-%setup -q -n websockets-11.0
-cd %{_builddir}/websockets-11.0
+%setup -q -n websockets-11.0.1
+cd %{_builddir}/websockets-11.0.1
 pushd ..
-cp -a websockets-11.0 buildavx2
+cp -a websockets-11.0.1 buildavx2
 popd
 
 %build
@@ -55,7 +85,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680552837
+export SOURCE_DATE_EPOCH=1680794608
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -79,6 +109,8 @@ popd
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/pypi-websockets
+cp %{_builddir}/websockets-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-websockets/170ef1f638721e2626a4c067bb1841f3001b9651 || :
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -95,6 +127,18 @@ popd
 
 %files
 %defattr(-,root,root,-)
+
+%files filemap
+%defattr(-,root,root,-)
+/usr/share/clear/filemap/filemap-pypi-websockets
+
+%files lib
+%defattr(-,root,root,-)
+/usr/share/clear/optimized-elf/other*
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/pypi-websockets/170ef1f638721e2626a4c067bb1841f3001b9651
 
 %files python
 %defattr(-,root,root,-)
