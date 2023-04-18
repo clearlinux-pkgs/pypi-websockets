@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-websockets
-Version  : 11.0.1
-Release  : 13
-URL      : https://files.pythonhosted.org/packages/bd/90/6b5802fad3992d6eac7163216e0389a72475cbb57b23005135190e96d160/websockets-11.0.1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/bd/90/6b5802fad3992d6eac7163216e0389a72475cbb57b23005135190e96d160/websockets-11.0.1.tar.gz
+Version  : 11.0.2
+Release  : 14
+URL      : https://files.pythonhosted.org/packages/9d/67/68e568bb4a0617529db2723c75958223b70b95921cd114b5fd13567db4d8/websockets-11.0.2.tar.gz
+Source0  : https://files.pythonhosted.org/packages/9d/67/68e568bb4a0617529db2723c75958223b70b95921cd114b5fd13567db4d8/websockets-11.0.2.tar.gz
 Summary  : An implementation of the WebSocket Protocol (RFC 6455 & 7692)
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -74,10 +74,10 @@ python3 components for the pypi-websockets package.
 
 
 %prep
-%setup -q -n websockets-11.0.1
-cd %{_builddir}/websockets-11.0.1
+%setup -q -n websockets-11.0.2
+cd %{_builddir}/websockets-11.0.2
 pushd ..
-cp -a websockets-11.0.1 buildavx2
+cp -a websockets-11.0.2 buildavx2
 popd
 
 %build
@@ -85,7 +85,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680794608
+export SOURCE_DATE_EPOCH=1681833316
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
