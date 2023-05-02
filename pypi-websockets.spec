@@ -5,14 +5,12 @@
 #
 Name     : pypi-websockets
 Version  : 11.0.2
-Release  : 14
+Release  : 15
 URL      : https://files.pythonhosted.org/packages/9d/67/68e568bb4a0617529db2723c75958223b70b95921cd114b5fd13567db4d8/websockets-11.0.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/9d/67/68e568bb4a0617529db2723c75958223b70b95921cd114b5fd13567db4d8/websockets-11.0.2.tar.gz
 Summary  : An implementation of the WebSocket Protocol (RFC 6455 & 7692)
 Group    : Development/Tools
 License  : BSD-3-Clause
-Requires: pypi-websockets-filemap = %{version}-%{release}
-Requires: pypi-websockets-lib = %{version}-%{release}
 Requires: pypi-websockets-license = %{version}-%{release}
 Requires: pypi-websockets-python = %{version}-%{release}
 Requires: pypi-websockets-python3 = %{version}-%{release}
@@ -26,24 +24,6 @@ BuildRequires : buildreq-distutils3
 :width: 480px
 :alt: websockets
 |licence| |version| |pyversions| |tests| |docs| |openssf|
-
-%package filemap
-Summary: filemap components for the pypi-websockets package.
-Group: Default
-
-%description filemap
-filemap components for the pypi-websockets package.
-
-
-%package lib
-Summary: lib components for the pypi-websockets package.
-Group: Libraries
-Requires: pypi-websockets-license = %{version}-%{release}
-Requires: pypi-websockets-filemap = %{version}-%{release}
-
-%description lib
-lib components for the pypi-websockets package.
-
 
 %package license
 Summary: license components for the pypi-websockets package.
@@ -65,7 +45,6 @@ python components for the pypi-websockets package.
 %package python3
 Summary: python3 components for the pypi-websockets package.
 Group: Default
-Requires: pypi-websockets-filemap = %{version}-%{release}
 Requires: python3-core
 Provides: pypi(websockets)
 
@@ -85,15 +64,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1681833316
+export SOURCE_DATE_EPOCH=1683048662
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
@@ -128,14 +107,6 @@ popd
 %files
 %defattr(-,root,root,-)
 
-%files filemap
-%defattr(-,root,root,-)
-/usr/share/clear/filemap/filemap-pypi-websockets
-
-%files lib
-%defattr(-,root,root,-)
-/usr/share/clear/optimized-elf/other*
-
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/pypi-websockets/170ef1f638721e2626a4c067bb1841f3001b9651
@@ -145,4 +116,5 @@ popd
 
 %files python3
 %defattr(-,root,root,-)
+/V3/usr/lib/python3*/*
 /usr/lib/python3*/*
