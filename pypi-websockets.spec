@@ -6,10 +6,10 @@
 # autospec commit: f35655a
 #
 Name     : pypi-websockets
-Version  : 13.0
-Release  : 21
-URL      : https://files.pythonhosted.org/packages/0f/b0/e53bdd53d86447d211694f3cf66f163d077c5d68e6bcaa726bf64e88ae3a/websockets-13.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/0f/b0/e53bdd53d86447d211694f3cf66f163d077c5d68e6bcaa726bf64e88ae3a/websockets-13.0.tar.gz
+Version  : 13.0.1
+Release  : 22
+URL      : https://files.pythonhosted.org/packages/8f/1c/78687e0267b09412409ac134f10fd14d14ac6475da892a8b09a02d0f6ae2/websockets-13.0.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/8f/1c/78687e0267b09412409ac134f10fd14d14ac6475da892a8b09a02d0f6ae2/websockets-13.0.1.tar.gz
 Summary  : An implementation of the WebSocket Protocol (RFC 6455 & 7692)
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -56,10 +56,10 @@ python3 components for the pypi-websockets package.
 
 
 %prep
-%setup -q -n websockets-13.0
-cd %{_builddir}/websockets-13.0
+%setup -q -n websockets-13.0.1
+cd %{_builddir}/websockets-13.0.1
 pushd ..
-cp -a websockets-13.0 buildavx2
+cp -a websockets-13.0.1 buildavx2
 popd
 
 %build
@@ -67,7 +67,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1724202458
+export SOURCE_DATE_EPOCH=1724888887
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -139,4 +139,5 @@ popd
 
 %files python3
 %defattr(-,root,root,-)
+/V3/usr/lib/python3*/*
 /usr/lib/python3*/*
