@@ -7,7 +7,7 @@
 #
 Name     : pypi-websockets
 Version  : 13.1
-Release  : 23
+Release  : 24
 URL      : https://files.pythonhosted.org/packages/e2/73/9223dbc7be3dcaf2a7bbf756c351ec8da04b1fa573edaf545b95f6b0c7fd/websockets-13.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/e2/73/9223dbc7be3dcaf2a7bbf756c351ec8da04b1fa573edaf545b95f6b0c7fd/websockets-13.1.tar.gz
 Summary  : An implementation of the WebSocket Protocol (RFC 6455 & 7692)
