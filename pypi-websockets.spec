@@ -7,7 +7,7 @@
 #
 Name     : pypi-websockets
 Version  : 14.2
-Release  : 27
+Release  : 28
 URL      : https://files.pythonhosted.org/packages/94/54/8359678c726243d19fae38ca14a334e740782336c9f19700858c4eb64a1e/websockets-14.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/94/54/8359678c726243d19fae38ca14a334e740782336c9f19700858c4eb64a1e/websockets-14.2.tar.gz
 Summary  : An implementation of the WebSocket Protocol (RFC 6455 & 7692)
